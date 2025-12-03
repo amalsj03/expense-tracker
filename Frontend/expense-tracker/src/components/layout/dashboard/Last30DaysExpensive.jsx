@@ -7,6 +7,7 @@ const Last30DaysExpensive = ({ data = [] }) => { // make sure data is passed as 
 
   useEffect(() => {
     const result = prepareExpenseBarChartData(data);
+    console.log(result)
     setCharData(result);
 
     // optional cleanup

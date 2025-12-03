@@ -41,10 +41,16 @@ export const addThousandsSeparator = (num) => {
 
 
 export const prepareExpenseBarChartData = (data = []) => {
-  const chartData = data.map((item) => ({
-    category: item?.category,
-    amount: item?.amount,
+   const sortedData = [...data].sort(
+    (a, b) => new Date(a?.date) - new Date(b?.date)
+  );
+
+  const chartData = sortedData.map((item) => ({
+    month: moment(item?.date).format("MMM YYYY"), // cleaner axis labels
+    amount: Number(item?.amount) || 0, // ensure numeric
+    source: item?.source || "Unknown",
   }));
+
   return chartData;
 };
 

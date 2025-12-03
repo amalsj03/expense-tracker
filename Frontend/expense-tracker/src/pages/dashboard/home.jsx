@@ -83,7 +83,7 @@ const Home = () => {
            <FinanceOverview
             totalBalance={dashboardData?.totalBalance || 0}
             totalIncome={dashboardData?.totalIncome || 0}
-            totalExpense={dashboardData?.totalExpense || 0}
+            totalExpense={dashboardData?.totalExpenses || 0}
             />
 
             <ExpenseTransactions
@@ -97,7 +97,7 @@ const Home = () => {
 
 
   <RecentIncomeWithChart
-    data={dashboardData?.Last60DaysExpensive?.transactions?.slice(0,4) || []}
+    data={dashboardData?.last60DaysIncome?.transactions || []}
     totalIncome={dashboardData?.totalIncome || 0}
     />
 
